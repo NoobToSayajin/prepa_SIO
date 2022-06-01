@@ -11,7 +11,7 @@ VALUES ('A153', 'auto','BMW',9000.99,5),
 	('V600', 'velo', 'Decathlon',250.00,20);
 
 
-INSERT INTO vente (IdCli,IdPro,date,qte)
+INSERT INTO vente (IdCli,IdPro,date_v,qte)
 VALUES ('c101','A153','2005-01-10',1),
 ('c108','A589','2005-03-01',2),
 ('c108','A153','2006-02-10',1),
