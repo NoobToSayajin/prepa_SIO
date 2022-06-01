@@ -1,0 +1,31 @@
+déclaration entier variable de nom: T
+écrire "entrez une température "
+lire T
+si: T >= 40 alors
+	écrire "il fait très chaud"
+sinonSi: (T >= 28 et T < 40) alors:
+	écrire "il fait chaud"
+sinonSi: (T >= 22 et T < 28) alors :
+	écrire "il fait bon"
+sinonSi: T < 22 alors
+	écrire "il fait froid"
+sinon
+	écrire " ERREUR : pas de valeurs numérique"
+finSi
+
+OU
+
+déclaration entier variable de nom: T
+écrire "entrez une température "
+lire T
+switch T:
+	cas T >= 40:
+		écrire "il fait très chaud"
+	cas (T >= 28 et T < 40):
+		écrire "il fait chaud"
+	cas (T >= 22 et T < 28): 
+		écrire "il fait bon"
+	cas T < 22:
+		écrire "il fait froid"
+	cas par défaut:
+		écrire " ERREUR : pas de valeurs"
