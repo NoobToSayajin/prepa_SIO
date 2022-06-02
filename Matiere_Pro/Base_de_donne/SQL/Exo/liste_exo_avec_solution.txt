@@ -1,0 +1,117 @@
+1- modifier le type de l'attribut prix
+le nouveau type REAL(10,2) au lieu de REAL(6,2)
+
+--------------------------------------------------------------------
+solution:
+
+1)-
+
+ALTER TABLE produit
+MODIFY prix REAL(10,2) ;
+
+
+-----------------------------------------------
+
+2-1 inserer un nouveau client dans la table client 
+	IdCli --> C500
+	nom ---> EPNAK
+	ville ---> Roubaix
+
+INSERT INTO client (IdCli, nom, ville)
+VALUES ('c500', 'EPNAK', 'Lille');
+
+2-2- inserer un nouveau produit:
+(IdPro,nom,marque,prix,qstock)-->('A154', 'auto','opel',7000.99,3)
+
+INSERT INTO produit (IdPro,nom,marque,prix,qstock)
+VALUES ('A154', 'auto','opel',7000.99,3)
+
+
+----------------------------------------------
+
+3- augmentez de 20% les prix des produits dont le nom='auto' 
+
+UPDATE produit
+SET prix = prix * 1.20
+WHERE nom = 'auto';
+
+-------------------------------------
+
+4-supprimer de ma base client, les clients qui habitent à Rome
+
+DELETE
+FROM client
+WHERE ville = 'Rome'
+
+--------------------------------------------
+5- afficher moi la liste des moms des produits vendus (sans redondance)
+select distinct(nom)
+from produit p , vente v
+where p.idpro=v.idpro
+
+----------------------------------------
+6-Lister les produits dont le prix est compris entre 5000 et
+12000
+SELECT *
+FROM produit
+WHERE prix BETWEEN 5000 AND 12000
+
+-----------------------------------------
+7-Lister les produits de marque decathlon, toyota et opel
+SELECT *
+FROM produit
+WHERE marque IN ('decathlon', 'toyota','opel')
+
+-------------------------------
+
+8-Lister les produits dont le prix est inconnu
+SELECT *
+FROM produit
+WHERE prix IS NULL
+-----------------------
+9-Lister les produits de marque 'bmw' dont le prix est inférieur
+à 12000
+SELECT *
+FROM produit
+WHERE marque = 'bmw' AND prix < 12000
+
+------------------------------------------------
+10-Donner les références, les noms et les marques des produits vendus
+SELECT P.IdPro, P.nom, P.marque
+FROM produit P , vente V
+WHERE P.IdPro = V.IdPro
+
+11- Donner les noms des clients qui ont acheté le produit de
+marque 'BMW'
+SELECT C.nom
+FROM client C , produit P, vente V
+WHERE V.IdCli = C.IdCli
+AND V.IdPro = P.IdPro
+AND P.marque = 'BMW'
+
+------------------------------------
+12-Donner le nombre total de clients
+SELECT COUNT ( IdCli )
+FROM client
+
+-----------------
+
+
+13- Donner le nombre total de 'velo' vendus
+SELECT SUM(V.qte)
+FROM vente V , produit P
+WHERE P.IdPro = V.IdPro
+AND P.nom = 'velo'
+
+************************
+
+group by :
+
+14- Donner pour chaque référence de produit la quantité totale
+vendue
+
+SELECT IdPro, SUM(qte)
+FROM vente
+GROUP BY IdPro
+
+--------------------------

@@ -1,0 +1,51 @@
+1- modifier le type de l'attribut prix
+le nouveau type REAL(10,2) au lieu de REAL(6,2)
+
+
+2-1- inserer un nouveau client dans la table client 
+	IdCli --> C500
+	nom ---> EPNAK
+	ville ---> Roubaix
+2-2- inserer un nouveau produit:
+(IdPro,nom,marque,prix,qstock)-->('A154', 'auto','opel',7000.99,3)
+
+
+3- augmentez de 20% les prix des produits dont le nom='auto' 
+
+
+4-supprimer de ma base client, les clients qui habitent à Rome
+
+
+5- afficher moi la liste des moms des produits vendus (sans redondance)
+
+
+6-Lister les produits dont le prix est compris entre 5000 et
+12000
+
+
+
+7-Lister les produits de marque decathlon, toyota et opel
+
+
+
+8-Lister les produits dont le prix est inconnu
+
+
+9-Lister les produits de marque 'bmw' dont le prix est inférieur
+à 12000
+
+
+10-Donner les références, les noms et les marques des produits vendus
+
+11- Donner les noms des clients qui ont acheté le produit de
+marque 'BMW'
+
+
+12-Donner le nombre total de clients
+
+
+13-Donner le nombre total de 'velo' vendus
+
+
+14-Donner pour chaque référence de produit la quantité totale
+vendue
